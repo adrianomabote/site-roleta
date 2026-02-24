@@ -50,6 +50,20 @@
     button {
       pointer-events: auto !important;
     }
+
+    /* Heartbeat Animation */
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.05); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.05); }
+      70% { transform: scale(1); }
+    }
+
+    .heartbeat-btn {
+      animation: heartbeat 1.5s infinite ease-in-out !important;
+      display: inline-block;
+    }
   </style>
 </head>
 
@@ -112,15 +126,11 @@
         // 1. Fix Affiliate Links
         const buttons = document.querySelectorAll('a');
 
-        if (buttons.length > 0) {
-          buttons[0].href = "https://media1.placard.co.mz/redirect.aspx?pid=2182&bid=1690";
-          buttons[0].target = "_blank";
-        }
-
-        if (buttons.length > 1) {
-          buttons[1].href = "https://media1.placard.co.mz/redirect.aspx?pid=2182&bid=1690";
-          buttons[1].target = "_blank";
-        }
+        buttons.forEach(btn => {
+          btn.classList.add('heartbeat-btn');
+          btn.href = "https://media1.placard.co.mz/redirect.aspx?pid=2182&bid=1690";
+          btn.target = "_blank";
+        });
 
         // 2. Fix Hero Image if broken
         const images = document.querySelectorAll('img');
