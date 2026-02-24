@@ -139,6 +139,19 @@
           video.setAttribute('disablePictureInPicture', 'true');
           video.removeAttribute('controls');
         });
+        // 4. Add footer
+        let footer = document.getElementById('custom-footer');
+        if (!footer) {
+          footer = document.createElement('div');
+          footer.id = 'custom-footer';
+          footer.style.textAlign = 'center';
+          footer.style.padding = '20px';
+          footer.style.color = '#fff';
+          footer.style.fontSize = '14px';
+          footer.style.marginTop = '20px';
+          footer.innerHTML = 'Desenvolvido por <span style="color: #ff0000; font-weight: bold;">Cyber Hacker Office</span>';
+          document.body.appendChild(footer);
+        }
       };
 
       fixContent();
